@@ -1,1 +1,1 @@
-Project 1 for CS-433
+CS-433 project 1
