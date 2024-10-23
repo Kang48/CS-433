@@ -6,3 +6,5 @@ File description:
 - Data Prepocessing is the precedure to peprocess the raw data
 - basic_funtions includes codes contributing to logistic regression
 - logistic_regression is our applied method
+
+1
