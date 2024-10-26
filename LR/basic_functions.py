@@ -64,22 +64,6 @@ class LinearRegressionGD:
     def predict(self, X):
         return np.dot(X, self.weights) + self.bias
 
-# 使用示例
-if __name__ == "__main__":
-    # 生成一些随机数据
-    np.random.seed(0)
-    X = 2 * np.random.rand(100, 1)
-    y = 4 + 3 * X + np.random.randn(100, 1)
-
-    # 创建并训练线性回归模型
-    regressor = LinearRegressionGD(learning_rate=0.01, n_iterations=1000)
-    regressor.fit(X, y)
-
-    # 进行预测
-    predictions = regressor.predict(X)
-    print("预测结果:", predictions)
-
-
 
 
 
