@@ -2,12 +2,10 @@
 
 File description:
 
-- helpers.py is the file provided for us
-- Data Prepocessing.ipynb is the code to preprocess the raw data
-- basic_funtions includes codes contributing to logistic regression
-- logistic_regression is our applied method
-- _sub.csv is the predictions we used to get our best score (0.388 f1 score and 0.863 accuracy)
-- notebook.ipynb is a notebook we used to train, test and tune all parameters, and test different strategies
-- implementations.py includes all applied functions
-- run.py is the script that generates our best attempt file
-- Report.pdf is our final report file.
+- project1_description.pdf is the project description file provided to us.
+- helpers.py is the file provided to us.
+- grading_tests folder is used to check the overall procedure.
+- Under data folder, sample_submission.csv is the prediction we used to get our best score (0.414 F1 score and 0.856 accuracy). The relative data path to run the code is under data/dataset.
+- implementations.py includes all applied functions.
+- run.ipynb is the notebook that generates our best attempt file.
+- CS433_report.pdf is our final report file.
