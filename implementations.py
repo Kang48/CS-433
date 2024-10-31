@@ -169,7 +169,7 @@ def least_squares(x_train_pre, y_train, x_test_pre, threshold=0.5):
             start_index = i * batch_size
             end_index = min((i + 1) * batch_size, n_samples)
             X_batch = X_train_b[start_index:end_index]  # Get the current batch
-            y_batch = y_train_pre[start_index:end_index]  # Corresponding labels
+            y_batch = y_train[start_index:end_index]  # Corresponding labels
 
             # Calculate predictions
             y_pred = X_batch.dot(w)
