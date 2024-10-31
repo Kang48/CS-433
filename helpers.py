@@ -27,10 +27,7 @@ def load_csv_data(data_path, sub_sample=False):
         dtype=int,
         usecols=1,
     )
-        # 使用 csv 模块读取列名
-    with open(os.path.join(data_path, "x_train.csv"), newline='') as csvfile:
-        reader = csv.reader(csvfile)
-        column_names = next(reader)  # 读取第一行作为列名
+
     
     x_train = np.genfromtxt(
         os.path.join(data_path, "x_train.csv"), delimiter=",", skip_header=1
