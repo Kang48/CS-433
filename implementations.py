@@ -1,7 +1,19 @@
 import numpy as np
 
 def mean_squared_error_gd(y, tx, initial_w, max_iters, gamma):
-    """Perform linear regression using gradient descent and compute mean squared error"""
+    """
+    Perform linear regression using stochastic gradient descent and compute mean squared error.
+
+    Args:
+        y: shape=(N, ). The vector of target values.
+        tx: shape=(N, D). The matrix of input features.
+        initial_w: shape=(D, ). The initial vector of model parameters.
+        max_iters: int. The maximum number of iterations to perform.
+        gamma: float. The learning rate.
+
+    Returns:
+        w: shape=(D, ). The final vector of model parameters.
+    """
     
     def compute_mse(y, tx, w):
         """Compute mean squared error"""
@@ -126,6 +138,18 @@ def calculate_gradient(y, tx, w):
     return gradient
 
 def least_squares(x_train_pre, y_train, x_test_pre, threshold=0.5):
+    """
+    Perform linear regression using mini-batch gradient descent and make predictions on test data.
+
+    Args:
+        x_train_pre (numpy.ndarray): Training data features, shape (N_train, D).
+        y_train (numpy.ndarray): Training data labels, shape (N_train, ).
+        x_test_pre (numpy.ndarray): Test data features, shape (N_test, D).
+        threshold (float): Threshold for converting continuous predictions to binary class labels.
+
+    Returns:
+        numpy.ndarray: Predicted labels for the test data, shape (N_test, ).
+    """
 
     X_train_b = np.c_[np.ones((x_train_pre.shape[0], 1)), x_train_pre]  # Add x0 = 1 (bias term)
 
@@ -171,6 +195,7 @@ def logistic_regression(y, tx, initial_w, max_iters, gamma):
     gradient_descent
     """
     w = initial_w
+    loss = calculate_loss(y, tx, w)  
     for i in range(max_iters):
         loss = calculate_loss(y, tx, w)
         gradient = calculate_gradient(y, tx, w)
