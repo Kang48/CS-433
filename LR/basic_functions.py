@@ -2,6 +2,7 @@
 #basic functions
 #compute_mse
 #compute_mae
+#calculate_accuracy
 
 import numpy as np
 
@@ -41,28 +42,23 @@ def compute_mae(y,tx,w):
 
 
 
-class LinearRegressionGD:
-    def __init__(self, learning_rate=0.01, n_iterations=1000):
-        self.learning_rate = learning_rate
-        self.n_iterations = n_iterations
-        self.weights = None
-        self.bias = None
 
-    def fit(self, X, y):
-        n_samples, n_features = X.shape
-        self.weights = np.zeros(n_features)
-        self.bias = 0
+def calculate_accuracy(y_true, y_pred):
+    
+    return np.mean(y_true == y_pred)
 
-        for _ in range(self.n_iterations):
-            y_predicted = np.dot(X, self.weights) + self.bias
-            dw = (1 / n_samples) * np.dot(X.T, (y_predicted - y))
-            db = (1 / n_samples) * np.sum(y_predicted - y)
+def calculate_f1_score(y_true, y_pred):
+   
+    tp = np.sum((y_true == 1) & (y_pred == 1))
+    fp = np.sum((y_true == 0) & (y_pred == 1))
+    fn = np.sum((y_true == 1) & (y_pred == 0))
+    
+    precision = tp / (tp + fp) if (tp + fp) > 0 else 0
+    recall = tp / (tp + fn) if (tp + fn) > 0 else 0
+    
+    f1 = 2 * (precision * recall) / (precision + recall) if (precision + recall) > 0 else 0
+    return f1
 
-            self.weights -= self.learning_rate * dw
-            self.bias -= self.learning_rate * db
-
-    def predict(self, X):
-        return np.dot(X, self.weights) + self.bias
 
 
 

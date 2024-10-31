@@ -1,7 +1,7 @@
 #logistic_regression
 
 import numpy as np
-from LR.basic_functions import *
+from basic_functions import *
 
 
 def sigmoid(z):
